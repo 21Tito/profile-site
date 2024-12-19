@@ -1,3 +1,4 @@
+/* General Styles */
 * {
     margin: 0;
     padding: 0;
@@ -5,28 +6,129 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
+    color: #333;
     line-height: 1.6;
-    padding: 20px;
+    margin: 0;
+    background-color: #f9f9f9;
 }
 
 header {
+    background: linear-gradient(90deg, #4CAF50, #2E7D32);
+    color: white;
     text-align: center;
-    padding: 2rem;
-    background-color: #f4f4f4;
+    padding: 2rem 0;
 }
 
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Section Styles */
 main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
 }
 
+section {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+section h2 {
+    color: #4CAF50;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #4CAF50;
+    display: inline-block;
+}
+
+/* About Section */
+#about p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+/* Projects Section */
+#projects ul {
+    list-style: none;
+    padding: 0;
+}
+
+#projects li {
+    margin-bottom: 1rem;
+}
+
+#projects a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#projects a:hover {
+    text-decoration: underline;
+}
+
+/* Contact Section */
+#contact p {
+    font-size: 1.2rem;
+}
+
+#contact a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#contact a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Styles */
 footer {
+    background: #2E7D32;
+    color: white;
     text-align: center;
-    padding: 1rem;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #f4f4f4;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    nav a {
+        font-size: 1rem;
+    }
+
+    section h2 {
+        font-size: 1.5rem;
+    }
+
+    #about p, #contact p {
+        font-size: 1rem;
+    }
 }
