@@ -3,25 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile</title>
+    <title>Theo Yeh - Product Manager Portfolio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome to Theo's Profile</h1>
-    </header>
-    
+    <nav>
+        <div class="logo">Theo</div>
+        <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#case-studies">Case studies</a>
+            <a href="#about">About me</a>
+            <a href="#contact">Contact us</a>
+        </div>
+        <button class="cta-button">See my work</button>
+    </nav>
+
     <main>
-        <section>
-            <h2>About Me</h2>
-            <p>Hi, my name is Theo and I'm learning to code!</p>
+        <div class="hero-section">
+            <div class="profile-section">
+                <img src="me.jpg" alt="Profile Photo" class="profile-image">
+                <h1>I'm Theo Yeh</h1>
+                <p class="substle">Senior Product Manager based in United States.</p>
+            </div>
+
+            <div class="intro-section">
+                <h2>Learning how to code!</h2>
+                <div class="cta-buttons">
+                    <button class="primary-button">Talk with me</button>
+                    <button class="secondary-button">See my work</button>
+                </div>
+            </div>
+        </div>
+
+        <section class="experience-section">
+            <h3>Working experience</h3>
+            <div class="experience-items">
+                <div class="experience-item">
+                    <img src="roo.png" alt="Company Logo" class="company-logo">
+                    <div class="experience-details">
+                        <h4>Senior Product Manager</h4>
+                        <p>[Your Current Company]</p>
+                    </div>
+                    <span class="date">[Start Date] - Present</span>
+                </div>
+                <!-- You can add more experience items like this:
+                <div class="experience-item">
+                    <img src="company2-logo.png" alt="Company Logo" class="company-logo">
+                    <div class="experience-details">
+                        <h4>Previous Role</h4>
+                        <p>Previous Company</p>
+                    </div>
+                    <span class="date">Date Range</span>
+                </div>
+                -->
+            </div>
         </section>
     </main>
-
-    <footer>
-        <p>&copy; 2024 My Profile</p>
-    </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
