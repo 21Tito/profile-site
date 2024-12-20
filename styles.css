@@ -394,6 +394,11 @@ button {
 }
 
 .secret-section {
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 250px;
     padding: 20px;
     text-align: center;
 }
@@ -401,14 +406,13 @@ button {
 .secret-form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
 }
 
 .secret-form input {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 100%;
 }
 
 .secret-form button {
@@ -418,7 +422,6 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    width: 100%;
 }
 
 .secret-form button:hover {
@@ -430,4 +433,10 @@ button {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     margin-top: 20px;
+}
+
+/* Make sure modal is hidden by default */
+.modal {
+    display: none;
+    /* ... rest of your modal styles ... */
 }
