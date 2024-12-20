@@ -1,29 +1,17 @@
-// Wait for the page to load
 document.addEventListener('DOMContentLoaded', () => {
-    // Get the form element
     const form = document.getElementById('contactForm');
     
     if (form) {
-        const submitButton = form.querySelector('button[type="submit"]');
-
-        // Add submit handler
-        form.addEventListener('submit', async function(e) {
-            // Prevent the default form submission
+        form.onsubmit = async (e) => {
             e.preventDefault();
-            e.stopPropagation();
             
-            // Disable the submit button to prevent double submission
-            submitButton.disabled = true;
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            };
 
             try {
-                // Get form data
-                const formData = {
-                    name: document.getElementById('name').value,
-                    email: document.getElementById('email').value,
-                    message: document.getElementById('message').value
-                };
-
-                // Send the data
                 const response = await fetch('http://localhost:3001/api/contact', {
                     method: 'POST',
                     headers: {
@@ -33,52 +21,40 @@ document.addEventListener('DOMContentLoaded', () => {
                     body: JSON.stringify(formData)
                 });
 
-                const result = await response.json();
-
-                if (response.ok) {
-                    // Clear the form
+                const data = await response.json();
+                
+                if (data.success) {
                     form.reset();
-                    
-                    // Show success modal
                     const modal = document.getElementById('successModal');
                     modal.style.display = 'block';
-                    setTimeout(() => {
-                        modal.classList.add('show');
-                    }, 10);
+                    modal.classList.add('show');
                 } else {
-                    throw new Error(result.message || 'Network response was not ok');
+                    throw new Error(data.message);
                 }
             } catch (error) {
                 console.error('Error:', error);
                 alert('Error sending message. Please try again.');
-            } finally {
-                // Re-enable the submit button
-                submitButton.disabled = false;
             }
-        });
+            
+            return false;
+        };
     }
 
     // Modal close handlers
     const modal = document.getElementById('successModal');
     const closeButton = document.querySelector('.close-button');
 
-    // Close button handler
     if (closeButton) {
-        closeButton.addEventListener('click', () => {
+        closeButton.onclick = () => {
             modal.classList.remove('show');
-            setTimeout(() => {
-                modal.style.display = 'none';
-            }, 300);
-        });
+            setTimeout(() => modal.style.display = 'none', 300);
+        };
     }
 
-    // Click outside modal to close
-    window.addEventListener('click', (e) => {
+    window.onclick = (e) => {
         if (e.target === modal) {
             modal.classList.remove('show');
-            setTimeout(() => {
-                modal.style.display = 'none';
-            }, 300);
+            setTimeout(() => modal.style.display = 'none', 300);
         }
-    });
+    };
 });

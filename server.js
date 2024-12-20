@@ -1,16 +1,22 @@
 const express = require('express');
 const { MongoClient } = require('mongodb');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 require('dotenv').config();
 
 const app = express();
 
-// Allow all origins (for development only)
-app.use(cors({ origin: '*' }));
+// CORS configuration - very permissive for development
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    if (req.method === 'OPTIONS') {
+        return res.sendStatus(200);
+    }
+    next();
+});
 
-// Middleware
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(express.static('.'));
 
 // MongoDB connection
@@ -19,8 +25,6 @@ const client = new MongoClient(uri);
 
 // Contact form endpoint
 app.post('/api/contact', async (req, res) => {
-    console.log('Received form submission:', req.body);
-
     try {
         await client.connect();
         const collection = client.db('portfolio').collection('contacts');
@@ -33,18 +37,10 @@ app.post('/api/contact', async (req, res) => {
         };
         
         await collection.insertOne(submission);
-        console.log('Successfully saved to database!');
-        
-        res.json({ 
-            success: true,
-            message: 'Message sent successfully!' 
-        });
+        res.json({ success: true, message: 'Message sent successfully!' });
     } catch (error) {
         console.error('Server error:', error);
-        res.status(500).json({ 
-            success: false,
-            message: 'Error sending message' 
-        });
+        res.status(500).json({ success: false, message: 'Error sending message' });
     }
 });
 
