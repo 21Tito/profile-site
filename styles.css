@@ -120,3 +120,44 @@ button {
 .date {
     color: #666;
 }
+
+/* Make anchor tags behave like buttons */
+a.primary-button,
+a.secondary-button {
+    display: inline-block;
+    text-decoration: none;  /* Removes underline from links */
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+/* Primary button styles */
+.primary-button {
+    background-color: #007bff;  /* or your preferred color */
+    color: white;
+    border: none;
+}
+
+.primary-button:hover {
+    background-color: #0056b3;  /* darker shade for hover */
+}
+
+/* Secondary button styles */
+.secondary-button {
+    background-color: transparent;
+    color: #007bff;  /* or your preferred color */
+    border: 2px solid #007bff;
+}
+
+.secondary-button:hover {
+    background-color: rgba(0, 123, 255, 0.1);  /* slight background on hover */
+}
+
+/* Ensure buttons and links have the same font */
+.primary-button,
+.secondary-button,
+button {
+    font-family: inherit;
+    font-size: inherit;
+}
