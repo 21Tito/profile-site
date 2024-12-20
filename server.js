@@ -31,6 +31,8 @@ testConnection();
 // Add this route handler after your existing code but before app.listen
 app.post('/api/contact', async (req, res) => {
     try {
+        console.log('Received form submission:', req.body); // Debug log
+        
         await client.connect();
         const collection = client.db('portfolio').collection('contacts');
         
@@ -41,10 +43,14 @@ app.post('/api/contact', async (req, res) => {
             date: new Date()
         };
         
+        console.log('Trying to save:', submission); // Debug log
+        
         await collection.insertOne(submission);
+        console.log('Successfully saved to database!'); // Debug log
+        
         res.status(200).json({ message: 'Message sent successfully!' });
     } catch (error) {
-        console.error(error);
+        console.error('Error in /api/contact:', error); // Better error logging
         res.status(500).json({ message: 'Error sending message' });
     }
 });

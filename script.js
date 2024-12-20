@@ -35,7 +35,31 @@ particlesJS('particles-js',
 );
 </script>
 
-// Add this to your existing script.js
+// Modal functions
+function showModal() {
+    const modal = document.getElementById('successModal');
+    modal.style.display = 'block';
+    setTimeout(() => modal.classList.add('show'), 10);
+}
+
+function closeModal() {
+    const modal = document.getElementById('successModal');
+    modal.classList.remove('show');
+    setTimeout(() => modal.style.display = 'none', 300);
+}
+
+// Add modal close button listener
+document.querySelector('.close-button').addEventListener('click', closeModal);
+
+// Close modal when clicking outside
+window.addEventListener('click', (e) => {
+    const modal = document.getElementById('successModal');
+    if (e.target === modal) {
+        closeModal();
+    }
+});
+
+// Update form submission handler
 document.getElementById('contactForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     
@@ -44,6 +68,8 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
         email: document.getElementById('email').value,
         message: document.getElementById('message').value
     };
+
+    console.log('Sending form data:', formData);
 
     try {
         const response = await fetch('/api/contact', {
@@ -55,13 +81,14 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
         });
 
         const result = await response.json();
-        alert(result.message);
+        console.log('Server response:', result);
         
         if (response.ok) {
-            e.target.reset(); // Clear form
+            e.target.reset();
+            showModal(); // Show success modal instead of alert
         }
     } catch (error) {
         console.error('Error:', error);
-        alert('Error sending message');
+        alert('Error sending message'); // Keep alert for errors
     }
 });
