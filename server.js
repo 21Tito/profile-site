@@ -6,8 +6,15 @@ require('dotenv').config();
 
 const app = express();
 
+// CORS configuration
+app.use(cors({
+    origin: 'http://127.0.0.1:5500', // or whatever port your live server is using
+    methods: ['POST', 'GET', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Accept'],
+    credentials: true
+}));
+
 // Middleware
-app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('.'));
@@ -28,9 +35,15 @@ async function testConnection() {
 
 testConnection();
 
-// Contact form endpoint
+// Contact form endpoint with CORS headers
 app.post('/api/contact', async (req, res) => {
-    console.log('Received form submission:', req.body); // Debug log
+    // Add CORS headers
+    res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:5500');
+    res.header('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Accept');
+    res.header('Access-Control-Allow-Credentials', 'true');
+
+    console.log('Received form submission:', req.body);
 
     try {
         await client.connect();
@@ -43,11 +56,11 @@ app.post('/api/contact', async (req, res) => {
             date: new Date()
         };
         
-        console.log('Saving submission:', submission); // Debug log
+        console.log('Saving submission:', submission);
         
         await collection.insertOne(submission);
         
-        console.log('Successfully saved to database!'); // Debug log
+        console.log('Successfully saved to database!');
         
         res.status(200).json({ 
             success: true,
@@ -62,7 +75,9 @@ app.post('/api/contact', async (req, res) => {
     }
 });
 
-// Start server
+// Handle OPTIONS requests
+app.options('/api/contact', cors());
+
 const PORT = 3001;
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
