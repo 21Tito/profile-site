@@ -248,3 +248,25 @@ button {
 .particles-js-canvas-el {
     opacity: 0.7;
 }
+
+.company-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;  /* Adds space above and below */
+}
+
+.company-logo {
+    width: 200px;  /* Adjust this value to your preferred size */
+    height: auto;
+    object-fit: contain;
+    /* Optional: add a subtle shadow */
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.1));
+}
+
+/* If you want the logo to look better on dark backgrounds */
+.company-logo {
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+}
