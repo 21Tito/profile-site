@@ -64,8 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('contactForm');
     
     if (form) {
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault(); // This should prevent the page refresh
+        form.onsubmit = async (e) => {
+            e.preventDefault();
+            e.stopPropagation();
             
             const formData = {
                 name: document.getElementById('name').value,
@@ -88,15 +89,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log('Server response:', result);
                 
                 if (response.ok) {
-                    showModal(); // Show success modal
-                    form.reset(); // Clear the form
+                    form.reset();
+                    showModal();
                 }
             } catch (error) {
                 console.error('Error:', error);
                 alert('Error sending message');
             }
             
-            return false; // Extra prevention of form submission
-        });
+            return false;
+        };
     }
 });
