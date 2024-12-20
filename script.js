@@ -58,3 +58,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 });
+
+function checkSecret() {
+    const secretInput = document.getElementById('secretCode');
+    const secretContent = document.getElementById('secretContent');
+    
+    if (secretInput.value === 'password') {
+        secretContent.style.display = 'block';
+        secretInput.value = ''; // Clear the input
+        
+        // Add a fun animation
+        secretContent.style.opacity = '0';
+        secretContent.style.transform = 'scale(0.5)';
+        
+        setTimeout(() => {
+            secretContent.style.transition = 'all 0.5s ease';
+            secretContent.style.opacity = '1';
+            secretContent.style.transform = 'scale(1)';
+        }, 100);
+    } else {
+        alert('Nice try! But that\'s not the secret code 😉');
+        secretInput.value = ''; // Clear the input
+    }
+}
