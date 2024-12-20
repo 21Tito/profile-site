@@ -1,35 +1,37 @@
 const express = require('express');
 const { MongoClient } = require('mongodb');
+const cors = require('cors');
+const bodyParser = require('body-parser');
 require('dotenv').config();
 
 const app = express();
-app.use(express.json());
-app.use(express.static('.')); 
+
+// Middleware
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static('.'));
 
 // MongoDB connection
 const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri);
 
-// Test the connection
+// Test database connection
 async function testConnection() {
     try {
         await client.connect();
-        console.log('Connected successfully to MongoDB!');
-        
-        // List all databases (just to test)
-        const databasesList = await client.db().admin().listDatabases();
-        console.log("Databases:");
-        databasesList.databases.forEach(db => console.log(` - ${db.name}`));
-        
+        console.log('Connected to MongoDB!');
     } catch (error) {
-        console.error('Error connecting to MongoDB:', error);
+        console.error('MongoDB connection error:', error);
     }
 }
 
 testConnection();
 
-// Add this route handler after your existing code but before app.listen
+// Contact form endpoint
 app.post('/api/contact', async (req, res) => {
+    console.log('Received form submission:', req.body); // Debug log
+
     try {
         await client.connect();
         const collection = client.db('portfolio').collection('contacts');
@@ -41,11 +43,11 @@ app.post('/api/contact', async (req, res) => {
             date: new Date()
         };
         
+        console.log('Saving submission:', submission); // Debug log
+        
         await collection.insertOne(submission);
         
-        // Send response headers to prevent caching
-        res.setHeader('Cache-Control', 'no-store');
-        res.setHeader('Content-Type', 'application/json');
+        console.log('Successfully saved to database!'); // Debug log
         
         res.status(200).json({ 
             success: true,
@@ -61,6 +63,7 @@ app.post('/api/contact', async (req, res) => {
 });
 
 // Start server
-app.listen(3001, () => {
-    console.log('Server running on http://localhost:3001');
+const PORT = 3001;
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
 }); 
