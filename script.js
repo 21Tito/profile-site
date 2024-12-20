@@ -27,11 +27,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 const response = await fetch('http://localhost:3001/api/contact', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
+                        'Content-Type': 'application/json'
                     },
+                    mode: 'cors',
                     body: JSON.stringify(formData)
                 });
+
+                const result = await response.json();
 
                 if (response.ok) {
                     // Clear the form
@@ -44,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         modal.classList.add('show');
                     }, 10);
                 } else {
-                    throw new Error('Network response was not ok');
+                    throw new Error(result.message || 'Network response was not ok');
                 }
             } catch (error) {
                 console.error('Error:', error);

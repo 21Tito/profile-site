@@ -6,43 +6,19 @@ require('dotenv').config();
 
 const app = express();
 
-// CORS configuration
-app.use(cors({
-    origin: 'http://127.0.0.1:5500', // or whatever port your live server is using
-    methods: ['POST', 'GET', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Accept'],
-    credentials: true
-}));
+// Allow all origins (for development only)
+app.use(cors({ origin: '*' }));
 
 // Middleware
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('.'));
 
 // MongoDB connection
 const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri);
 
-// Test database connection
-async function testConnection() {
-    try {
-        await client.connect();
-        console.log('Connected to MongoDB!');
-    } catch (error) {
-        console.error('MongoDB connection error:', error);
-    }
-}
-
-testConnection();
-
-// Contact form endpoint with CORS headers
+// Contact form endpoint
 app.post('/api/contact', async (req, res) => {
-    // Add CORS headers
-    res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:5500');
-    res.header('Access-Control-Allow-Methods', 'POST, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Accept');
-    res.header('Access-Control-Allow-Credentials', 'true');
-
     console.log('Received form submission:', req.body);
 
     try {
@@ -56,13 +32,10 @@ app.post('/api/contact', async (req, res) => {
             date: new Date()
         };
         
-        console.log('Saving submission:', submission);
-        
         await collection.insertOne(submission);
-        
         console.log('Successfully saved to database!');
         
-        res.status(200).json({ 
+        res.json({ 
             success: true,
             message: 'Message sent successfully!' 
         });
@@ -74,9 +47,6 @@ app.post('/api/contact', async (req, res) => {
         });
     }
 });
-
-// Handle OPTIONS requests
-app.options('/api/contact', cors());
 
 const PORT = 3001;
 app.listen(PORT, () => {
