@@ -38,66 +38,78 @@ particlesJS('particles-js',
 // Modal functions
 function showModal() {
     const modal = document.getElementById('successModal');
-    modal.style.display = 'block';
-    setTimeout(() => modal.classList.add('show'), 10);
+    if (modal) {
+        modal.style.display = 'block';
+        setTimeout(() => modal.classList.add('show'), 10);
+    }
 }
 
 function closeModal() {
     const modal = document.getElementById('successModal');
-    modal.classList.remove('show');
-    setTimeout(() => modal.style.display = 'none', 300);
+    if (modal) {
+        modal.classList.remove('show');
+        setTimeout(() => modal.style.display = 'none', 300);
+    }
 }
 
-// Add modal close button listener
-document.querySelector('.close-button').addEventListener('click', closeModal);
+// Modal close handlers
+document.addEventListener('DOMContentLoaded', () => {
+    const closeButton = document.querySelector('.close-button');
+    if (closeButton) {
+        closeButton.addEventListener('click', closeModal);
+    }
 
-// Close modal when clicking outside
-window.addEventListener('click', (e) => {
     const modal = document.getElementById('successModal');
-    if (e.target === modal) {
-        closeModal();
+    if (modal) {
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
     }
 });
 
 // Make sure the DOM is loaded before adding event listeners
 document.addEventListener('DOMContentLoaded', () => {
+    // Prevent form submission from reloading the page
     const form = document.getElementById('contactForm');
     
     if (form) {
-        form.onsubmit = async (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                message: document.getElementById('message').value
-            };
-
-            console.log('Sending form data:', formData);
-
-            try {
-                const response = await fetch('/api/contact', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(formData)
-                });
-
-                const result = await response.json();
-                console.log('Server response:', result);
-                
-                if (response.ok) {
-                    form.reset();
-                    showModal();
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Error sending message');
-            }
-            
-            return false;
-        };
+        // Replace the existing submit handler
+        form.addEventListener('submit', handleSubmit);
     }
 });
+
+// Separate function for form handling
+async function handleSubmit(event) {
+    event.preventDefault();  // Prevent form submission
+    event.stopPropagation(); // Stop event bubbling
+    
+    const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        message: document.getElementById('message').value
+    };
+
+    try {
+        const response = await fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+        
+        if (response.ok) {
+            event.target.reset(); // Clear the form
+            showModal();
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error sending message');
+    }
+    
+    return false; // Prevent default form behavior
+}
