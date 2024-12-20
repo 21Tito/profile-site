@@ -59,36 +59,44 @@ window.addEventListener('click', (e) => {
     }
 });
 
-// Update form submission handler
-document.getElementById('contactForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
+// Make sure the DOM is loaded before adding event listeners
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contactForm');
     
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        message: document.getElementById('message').value
-    };
+    if (form) {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); // This should prevent the page refresh
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            };
 
-    console.log('Sending form data:', formData);
+            console.log('Sending form data:', formData);
 
-    try {
-        const response = await fetch('/api/contact', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+                console.log('Server response:', result);
+                
+                if (response.ok) {
+                    showModal(); // Show success modal
+                    form.reset(); // Clear the form
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error sending message');
+            }
+            
+            return false; // Extra prevention of form submission
         });
-
-        const result = await response.json();
-        console.log('Server response:', result);
-        
-        if (response.ok) {
-            e.target.reset();
-            showModal(); // Show success modal instead of alert
-        }
-    } catch (error) {
-        console.error('Error:', error);
-        alert('Error sending message'); // Keep alert for errors
     }
 });
