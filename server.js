@@ -31,8 +31,6 @@ testConnection();
 // Add this route handler after your existing code but before app.listen
 app.post('/api/contact', async (req, res) => {
     try {
-        console.log('Received form submission:', req.body); // Debug log
-        
         await client.connect();
         const collection = client.db('portfolio').collection('contacts');
         
@@ -43,15 +41,22 @@ app.post('/api/contact', async (req, res) => {
             date: new Date()
         };
         
-        console.log('Trying to save:', submission); // Debug log
-        
         await collection.insertOne(submission);
-        console.log('Successfully saved to database!'); // Debug log
         
-        res.status(200).json({ message: 'Message sent successfully!' });
+        // Send response headers to prevent caching
+        res.setHeader('Cache-Control', 'no-store');
+        res.setHeader('Content-Type', 'application/json');
+        
+        res.status(200).json({ 
+            success: true,
+            message: 'Message sent successfully!' 
+        });
     } catch (error) {
-        console.error('Error in /api/contact:', error); // Better error logging
-        res.status(500).json({ message: 'Error sending message' });
+        console.error('Server error:', error);
+        res.status(500).json({ 
+            success: false,
+            message: 'Error sending message' 
+        });
     }
 });
 

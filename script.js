@@ -71,45 +71,79 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Make sure the DOM is loaded before adding event listeners
 document.addEventListener('DOMContentLoaded', () => {
-    // Prevent form submission from reloading the page
+    // Get the form element
     const form = document.getElementById('contactForm');
-    
-    if (form) {
-        // Replace the existing submit handler
-        form.addEventListener('submit', handleSubmit);
-    }
-});
+    const submitButton = form.querySelector('button[type="submit"]');
 
-// Separate function for form handling
-async function handleSubmit(event) {
-    event.preventDefault();  // Prevent form submission
-    event.stopPropagation(); // Stop event bubbling
-    
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        message: document.getElementById('message').value
-    };
-
-    try {
-        const response = await fetch('/api/contact', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-        });
-
-        const result = await response.json();
+    // Add submit handler
+    form.addEventListener('submit', async function(e) {
+        // Prevent the default form submission
+        e.preventDefault();
+        e.stopPropagation();
         
-        if (response.ok) {
-            event.target.reset(); // Clear the form
-            showModal();
+        // Disable the submit button to prevent double submission
+        submitButton.disabled = true;
+
+        try {
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            };
+
+            // Send the data
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                // Clear the form
+                form.reset();
+                
+                // Show success modal
+                const modal = document.getElementById('successModal');
+                modal.style.display = 'block';
+                setTimeout(() => {
+                    modal.classList.add('show');
+                }, 10);
+            } else {
+                throw new Error('Network response was not ok');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Error sending message. Please try again.');
+        } finally {
+            // Re-enable the submit button
+            submitButton.disabled = false;
         }
-    } catch (error) {
-        console.error('Error:', error);
-        alert('Error sending message');
+    });
+
+    // Modal close handlers
+    const modal = document.getElementById('successModal');
+    const closeButton = document.querySelector('.close-button');
+
+    // Close button handler
+    if (closeButton) {
+        closeButton.addEventListener('click', () => {
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+        });
     }
-    
-    return false; // Prevent default form behavior
-}
+
+    // Click outside modal to close
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+        }
+    });
+});
