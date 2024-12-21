@@ -57,6 +57,69 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => modal.style.display = 'none', 300);
         }
     };
+
+    const signupForm = document.getElementById('signupForm');
+    const loginForm = document.getElementById('loginForm');
+
+    signupForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = {
+            username: document.getElementById('signupUsername').value,
+            email: document.getElementById('signupEmail').value,
+            password: document.getElementById('signupPassword').value
+        };
+
+        try {
+            const response = await fetch('https://portfolio-server-xxxx.onrender.com/api/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const data = await response.json();
+            if (data.success) {
+                alert('Account created successfully! Please login.');
+                signupForm.reset();
+            } else {
+                alert(data.message);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Error creating account. Please try again.');
+        }
+    });
+
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = {
+            email: document.getElementById('loginEmail').value,
+            password: document.getElementById('loginPassword').value
+        };
+
+        try {
+            const response = await fetch('https://portfolio-server-xxxx.onrender.com/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const data = await response.json();
+            if (data.success) {
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('username', data.username);
+                window.location.href = '/members.html';
+            } else {
+                alert(data.message);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Error logging in. Please try again.');
+        }
+    });
 });
 
 function checkSecret() {
