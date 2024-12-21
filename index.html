@@ -30,10 +30,28 @@
                     </div>
 
                     <div class="intro-section">
-                        <h2>Learning how to code!</h2>
-                        <div class="cta-buttons">
-                            <a href="mailto:theoyeh@gmail.com" class="primary-button">Email me</a>
-                            <button class="secondary-button">See my work</button>
+                        <h1>Learning how to code</h1>
+                        
+                        <div class="contact-container">
+                            <div class="contact-section">
+                                <h2>Contact Me</h2>
+                                <form id="contactForm">
+                                    <input type="text" id="name" placeholder="Your Name" required>
+                                    <input type="email" id="email" placeholder="Your Email" required>
+                                    <textarea id="message" placeholder="Your Message" required></textarea>
+                                    <button type="submit">Send Message</button>
+                                </form>
+                            </div>
+
+                            <div class="secret-section">
+                                <div class="secret-form">
+                                    <input type="password" id="secretCode" placeholder="Enter secret code">
+                                    <button onclick="checkSecret()">Submit</button>
+                                </div>
+                                <div id="secretContent" style="display: none;">
+                                    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtY2JrYnB1a2E3Y3RxOWNxbGx6Ymdvd3BnOXF6YmN0Nm8yYjh5eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nXxOjZrbnbRxS/giphy.gif" alt="Funny GIF" class="secret-gif">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -64,40 +82,6 @@
                     </div>
                 </section>
 
-                <div class="contact-container">
-                    <!-- Contact Form -->
-                    <div class="contact-section">
-                        <h2>Contact Me</h2>
-                        <form id="contactForm">
-                            <input type="text" id="name" placeholder="Your Name" required>
-                            <input type="email" id="email" placeholder="Your Email" required>
-                            <textarea id="message" placeholder="Your Message" required></textarea>
-                            <button type="submit">Send Message</button>
-                        </form>
-                    </div>
-
-                    <!-- Secret Section -->
-                    <div class="secret-section">
-                        <div class="secret-form">
-                            <input type="password" id="secretCode" placeholder="Enter secret code">
-                            <button onclick="checkSecret()">Submit</button>
-                        </div>
-                        <div id="secretContent" style="display: none;">
-                            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtY2JrYnB1a2E3Y3RxOWNxbGx6Ymdvd3BnOXF6YmN0Nm8yYjh5eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nXxOjZrbnbRxS/giphy.gif" alt="Funny GIF" class="secret-gif">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Success Modal -->
-                <div id="successModal" class="modal">
-                    <div class="modal-content">
-                        <span class="close-button">&times;</span>
-                        <h2>Thank You!</h2>
-                        <p>Your message has been sent successfully.</p>
-                    </div>
-                </div>
-
-                <!-- Add this after your contact section -->
                 <section id="skills" class="skills-section">
                     <h2>Skills</h2>
                     <div class="skills-grid">
@@ -170,6 +154,15 @@
                         </div>
                     </div>
                 </section>
+
+                <!-- Success Modal -->
+                <div id="successModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-button">&times;</span>
+                        <h2>Thank You!</h2>
+                        <p>Your message has been sent successfully.</p>
+                    </div>
+                </div>
             </main>
         </div>
         <div class="book-cover right"></div>
