@@ -70,11 +70,12 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            const response = await fetch('https://portfolio-server-xxxx.onrender.com/api/signup', {
+            const response = await fetch('https://portfolio-server-nnkf.onrender.com/api/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
+                credentials: 'include',
                 body: JSON.stringify(formData)
             });
 
