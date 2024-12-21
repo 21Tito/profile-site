@@ -73,9 +73,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch('https://portfolio-server-nnkf.onrender.com/api/signup', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
                 },
-                credentials: 'include',
+                mode: 'cors',
                 body: JSON.stringify(formData)
             });
 
