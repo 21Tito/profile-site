@@ -32,26 +32,14 @@
                     <div class="intro-section">
                         <h1>Learning how to code</h1>
                         
-                        <div class="contact-container">
-                            <div class="contact-section">
-                                <h2>Contact Me</h2>
-                                <form id="contactForm">
-                                    <input type="text" id="name" placeholder="Your Name" required>
-                                    <input type="email" id="email" placeholder="Your Email" required>
-                                    <textarea id="message" placeholder="Your Message" required></textarea>
-                                    <button type="submit">Send Message</button>
-                                </form>
-                            </div>
-
-                            <div class="secret-section">
-                                <div class="secret-form">
-                                    <input type="password" id="secretCode" placeholder="Enter secret code">
-                                    <button onclick="checkSecret()">Submit</button>
-                                </div>
-                                <div id="secretContent" style="display: none;">
-                                    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtY2JrYnB1a2E3Y3RxOWNxbGx6Ymdvd3BnOXF6YmN0Nm8yYjh5eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nXxOjZrbnbRxS/giphy.gif" alt="Funny GIF" class="secret-gif">
-                                </div>
-                            </div>
+                        <div class="contact-section">
+                            <h2>Contact Me</h2>
+                            <form id="contactForm">
+                                <input type="text" id="name" placeholder="Your Name" required>
+                                <input type="email" id="email" placeholder="Your Email" required>
+                                <textarea id="message" placeholder="Your Message" required></textarea>
+                                <button type="submit">Send Message</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -155,7 +143,16 @@
                     </div>
                 </section>
 
-                <!-- Success Modal -->
+                <section class="secret-section">
+                    <div class="secret-form">
+                        <input type="password" id="secretCode" placeholder="Enter secret code">
+                        <button onclick="checkSecret()">Submit</button>
+                    </div>
+                    <div id="secretContent" style="display: none;">
+                        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtY2JrYnB1a2E3Y3RxOWNxbGx6Ymdvd3BnOXF6YmN0Nm8yYjh5eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nXxOjZrbnbRxS/giphy.gif" alt="Funny GIF" class="secret-gif">
+                    </div>
+                </section>
+
                 <div id="successModal" class="modal">
                     <div class="modal-content">
                         <span class="close-button">&times;</span>
