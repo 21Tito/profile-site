@@ -1,17 +1,7 @@
 {
   "permissions": {
     "allow": [
-      "Bash(curl:*)",
-      "Bash(git add:*)",
-      "Bash(git commit:*)",
-      "Bash(git config:*)",
-      "Bash(git push:*)",
-      "Bash(tasklist:*)",
-      "Bash(findstr:*)",
-      "Bash(netstat:*)",
-      "Bash(taskkill:*)",
-      "Bash(node:*)",
-      "Bash(powershell -Command \"Add-Type -AssemblyName System.IO.Compression.FileSystem; $zip = [System.IO.Compression.ZipFile]::OpenRead(''C:\\Users\\theoy\\Downloads\\Theo_Yeh_Resume_Oct_2025.docx''); $entry = $zip.Entries | Where-Object { $_Name -eq ''document.xml'' }; $stream = $entry.Open(); $reader = New-Object System.IO.StreamReader($stream); $content = $reader.ReadToEnd(); $reader.Close(); $stream.Close(); $zip.Dispose(); $content\")"
+      "Bash(npm install:*)"
     ],
     "deny": [],
     "ask": []

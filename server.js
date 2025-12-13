@@ -1,9 +1,19 @@
 const express = require('express');
 const { MongoClient } = require('mongodb');
 const cors = require('cors');
+const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 const app = express();
+
+// Email configuration
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: process.env.EMAIL_USER || 'theoyeh@gmail.com',
+        pass: process.env.EMAIL_APP_PASSWORD // Gmail App Password (not regular password)
+    }
+});
 
 // CORS configuration - very permissive for development
 app.use((req, res, next) => {
@@ -28,25 +38,55 @@ if (uri) {
 
 // Contact form endpoint
 app.post('/api/contact', async (req, res) => {
-    if (!client) {
-        return res.status(500).json({ success: false, message: 'Database not configured' });
-    }
     try {
-        await client.connect();
-        const collection = client.db('portfolio').collection('contacts');
-        
+        const { name, email, message } = req.body;
+
         const submission = {
-            name: req.body.name,
-            email: req.body.email,
-            message: req.body.message,
+            name,
+            email,
+            message,
             date: new Date()
         };
-        
-        await collection.insertOne(submission);
+
+        // Save to MongoDB if configured
+        if (client) {
+            try {
+                await client.connect();
+                const collection = client.db('portfolio').collection('contacts');
+                await collection.insertOne(submission);
+            } catch (dbError) {
+                console.error('Database error (non-fatal):', dbError);
+            }
+        }
+
+        // Send email notification
+        const mailOptions = {
+            from: process.env.EMAIL_USER || 'theoyeh@gmail.com',
+            to: 'theoyeh@gmail.com',
+            subject: `Portfolio Contact: ${name}`,
+            html: `
+                <h2>New Contact Form Submission</h2>
+                <p><strong>From:</strong> ${name}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
+                <hr>
+                <h3>Message:</h3>
+                <p>${message.replace(/\n/g, '<br>')}</p>
+                <hr>
+                <p><em>Reply to: ${email}</em></p>
+            `,
+            replyTo: email
+        };
+
+        await transporter.sendMail(mailOptions);
+
         res.json({ success: true, message: 'Message sent successfully!' });
     } catch (error) {
         console.error('Server error:', error);
-        res.status(500).json({ success: false, message: 'Error sending message' });
+        res.status(500).json({
+            success: false,
+            message: 'Error sending message. Please try emailing directly at theoyeh@gmail.com'
+        });
     }
 });
 
