@@ -3,252 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Theo Yeh</title>
+    <title>Theo Yeh - Product Manager</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="book-container">
-        <div class="book-cover left"></div>
-        <div class="book-content">
-            <div id="particles-js"></div>
-            <nav>
-                <div class="logo">Theo</div>
-                <div class="nav-links">
-                    <a href="#services">Services</a>
-                    <a href="#case-studies">Case studies</a>
-                    <a href="about.html">About me</a>
-                    <a href="#contact">Contact us</a>
-                </div>
-            </nav>
-
-            <main>
-                <div class="hero-section">
-                    <div class="profile-section">
-                        <img src="me.jpg" alt="Profile Photo" class="profile-image">
-                        <h1>I'm Theo Yeh</h1>
-                        <p class="substle">Senior Product Manager based in United States.</p>
-                    </div>
-
-                    <div class="intro-section">
-                        <h1>Learning how to code</h1>
-                        
-                        <div class="contact-section">
-                            <h2>Contact Me</h2>
-                            <form id="contactForm">
-                                <input type="text" id="name" placeholder="Your Name" required>
-                                <input type="email" id="email" placeholder="Your Email" required>
-                                <textarea id="message" placeholder="Your Message" required></textarea>
-                                <button type="submit">Send Message</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-                <section class="experience-section">
-                    <h3>Working experience</h3>
-                    <div class="experience-items">
-                        <div class="experience-item">
-                            <div class="company-logo-container">
-                                <img src="roo.png" alt="Roo Logo" class="company-logo">
-                            </div>
-                            <div class="experience-details">
-                                <h4>Senior Product Manager</h4>
-                                <p>Roo</p>
-                            </div>
-                            <span class="date">[Start Date] - Present</span>
-                        </div>
-                        <!-- You can add more experience items like this:
-                        <div class="experience-item">
-                            <img src="company2-logo.png" alt="Company Logo" class="company-logo">
-                            <div class="experience-details">
-                                <h4>Previous Role</h4>
-                                <p>Previous Company</p>
-                            </div>
-                            <span class="date">Date Range</span>
-                        </div>
-                        -->
-                    </div>
-                </section>
-
-                <section id="skills" class="skills-section">
-                    <h2>Skills</h2>
-                    <div class="skills-grid">
-                        <!-- Frontend Skills -->
-                        <div class="skill-category">
-                            <h3>Frontend</h3>
-                            <div class="skill-bars">
-                                <div class="skill-bar">
-                                    <div class="skill-info">
-                                        <span>HTML/CSS</span>
-                                        <span>90%</span>
-                                    </div>
-                                    <div class="progress-bar">
-                                        <div class="progress" style="width: 90%"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-info">
-                                        <span>JavaScript</span>
-                                        <span>85%</span>
-                                    </div>
-                                    <div class="progress-bar">
-                                        <div class="progress" style="width: 85%"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-info">
-                                        <span>React</span>
-                                        <span>80%</span>
-                                    </div>
-                                    <div class="progress-bar">
-                                        <div class="progress" style="width: 80%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Backend Skills -->
-                        <div class="skill-category">
-                            <h3>Backend</h3>
-                            <div class="skill-bars">
-                                <div class="skill-bar">
-                                    <div class="skill-info">
-                                        <span>Node.js</span>
-                                        <span>85%</span>
-                                    </div>
-                                    <div class="progress-bar">
-                                        <div class="progress" style="width: 85%"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-info">
-                                        <span>MongoDB</span>
-                                        <span>75%</span>
-                                    </div>
-                                    <div class="progress-bar">
-                                        <div class="progress" style="width: 75%"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-info">
-                                        <span>Express</span>
-                                        <span>80%</span>
-                                    </div>
-                                    <div class="progress-bar">
-                                        <div class="progress" style="width: 80%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="auth-section">
-                    <div class="auth-container">
-                        <div class="auth-form signup-form">
-                            <h2>Sign Up</h2>
-                            <form id="signupForm">
-                                <input type="text" id="signupUsername" placeholder="Username" required>
-                                <input type="email" id="signupEmail" placeholder="Email" required>
-                                <input type="password" id="signupPassword" placeholder="Password" required>
-                                <button type="submit">Create Account</button>
-                            </form>
-                        </div>
-
-                        <div class="auth-form login-form">
-                            <h2>Login</h2>
-                            <form id="loginForm">
-                                <input type="email" id="loginEmail" placeholder="Email" required>
-                                <input type="password" id="loginPassword" placeholder="Password" required>
-                                <button type="submit">Login</button>
-                            </form>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="secret-section">
-                    <div class="secret-form">
-                        <input type="password" id="secretCode" placeholder="Enter secret code">
-                        <button onclick="checkSecret()">Submit</button>
-                    </div>
-                    <div id="secretContent" style="display: none;">
-                        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtY2JrYnB1a2E3Y3RxOWNxbGx6Ymdvd3BnOXF6YmN0Nm8yYjh5eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nXxOjZrbnbRxS/giphy.gif" alt="Funny GIF" class="secret-gif">
-                    </div>
-                </section>
-
-                <div id="successModal" class="modal">
-                    <div class="modal-content">
-                        <span class="close-button">&times;</span>
-                        <h2>Thank You!</h2>
-                        <p>Your message has been sent successfully.</p>
-                    </div>
-                </div>
-            </main>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Theo Yeh</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </div>
         </div>
-        <div class="book-cover right"></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Product Manager</h1>
+                <h2 class="hero-subtitle">Based in the United States</h2>
+                <p class="hero-description">
+                    Senior Product Manager passionate about building great products and learning to code.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                    <a href="#experience" class="btn btn-secondary">View Experience</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="me.jpg" alt="Theo Yeh" class="profile-photo">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p class="about-text">
+                I'm a Senior Product Manager with a passion for creating innovative solutions.
+                Currently expanding my skillset by learning to code and exploring the technical side of product development.
+            </p>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <div class="experience-logo">
+                        <img src="roo.png" alt="Roo" class="company-logo">
+                    </div>
+                    <div class="experience-content">
+                        <h3 class="experience-role">Senior Product Manager</h3>
+                        <p class="experience-company">Roo</p>
+                        <p class="experience-date">Present</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Frontend</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">HTML/CSS</span>
+                                <span class="skill-percent">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">JavaScript</span>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">React</span>
+                                <span class="skill-percent">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Backend</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Node.js</span>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">MongoDB</span>
+                                <span class="skill-percent">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Express</span>
+                                <span class="skill-percent">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="contact-wrapper">
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Theo Yeh. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Thank You!</h3>
+            <p>Your message has been sent successfully.</p>
+        </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            particlesJS('particles-js',
-            {
-                "particles": {
-                    "number": {
-                        "value": 80,
-                        "density": {
-                            "enable": true,
-                            "value_area": 800
-                        }
-                    },
-                    "color": {
-                        "value": "#007bff"  // Change color to match your theme
-                    },
-                    "shape": {
-                        "type": "circle"
-                    },
-                    "opacity": {
-                        "value": 0.5,
-                        "random": false
-                    },
-                    "size": {
-                        "value": 3,
-                        "random": true
-                    },
-                    "line_linked": {
-                        "enable": true,
-                        "distance": 150,
-                        "color": "#007bff",  // Change color to match your theme
-                        "opacity": 0.4,
-                        "width": 1
-                    },
-                    "move": {
-                        "enable": true,
-                        "speed": 6,
-                        "direction": "none",
-                        "random": false,
-                        "straight": false,
-                        "out_mode": "out",
-                        "bounce": false
-                    }
-                },
-                "interactivity": {
-                    "detect_on": "canvas",
-                    "events": {
-                        "onhover": {
-                            "enable": true,
-                            "mode": "repulse"
-                        },
-                        "onclick": {
-                            "enable": true,
-                            "mode": "push"
-                        },
-                        "resize": true
-                    }
-                },
-                "retina_detect": true
-            });
-        });
-    </script>
+
     <script src="script.js"></script>
 </body>
 </html>
