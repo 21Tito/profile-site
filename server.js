@@ -21,10 +21,16 @@ app.use(express.static('.'));
 
 // MongoDB connection
 const uri = process.env.MONGODB_URI;
-const client = new MongoClient(uri);
+let client;
+if (uri) {
+    client = new MongoClient(uri);
+}
 
 // Contact form endpoint
 app.post('/api/contact', async (req, res) => {
+    if (!client) {
+        return res.status(500).json({ success: false, message: 'Database not configured' });
+    }
     try {
         await client.connect();
         const collection = client.db('portfolio').collection('contacts');
