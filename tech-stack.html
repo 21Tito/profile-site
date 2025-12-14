@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Stack - Theo Yeh</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Theo Yeh</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="experience.html">Experience</a>
+                <a href="how-i-work.html">How I Work</a>
+                <a href="tech-stack.html" class="active">Tech Stack</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tech Stack Section -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Tech Stack</h1>
+            <p class="page-subtitle">Tools and platforms I use to build products and drive impact</p>
+        </div>
+    </section>
+
+    <section class="tech-stack-section">
+        <div class="container">
+            <div id="techStackContent" class="tech-stack-grid">
+                <!-- Loaded dynamically from content.json -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Theo Yeh. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="content-loader.js"></script>
+    <script>
+        // Load tech stack dynamically
+        document.addEventListener('DOMContentLoaded', async () => {
+            const data = await loadContent();
+            if (data && data.techStack && data.techStack.categories) {
+                const content = document.getElementById('techStackContent');
+                content.innerHTML = data.techStack.categories.map(category => `
+                    <div class="tech-category-card">
+                        <h2 class="tech-category-title">${category.name}</h2>
+                        <div class="tech-tools-list">
+                            ${category.tools.map(tool => `
+                                <div class="tech-tool-item">
+                                    <h3 class="tech-tool-name">${tool.name}</h3>
+                                    <p class="tech-tool-description">${tool.description}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `).join('');
+            }
+        });
+    </script>
+</body>
+</html>

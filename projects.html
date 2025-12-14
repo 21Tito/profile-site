@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Theo Yeh</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Theo Yeh</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="projects.html" class="active">Projects</a>
+                <a href="experience.html">Experience</a>
+                <a href="how-i-work.html">How I Work</a>
+                <a href="tech-stack.html">Tech Stack</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Projects Section -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Case Studies</h1>
+            <p class="page-subtitle">Product launches and initiatives that drove measurable business impact</p>
+        </div>
+    </section>
+
+    <section class="projects-section">
+        <div class="container">
+            <div id="projectsGrid" class="projects-grid">
+                <!-- Loaded dynamically from content.json -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Theo Yeh. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="content-loader.js"></script>
+    <script>
+        // Load case studies dynamically
+        document.addEventListener('DOMContentLoaded', async () => {
+            const data = await loadContent();
+            if (data && data.caseStudies) {
+                const projectsGrid = document.getElementById('projectsGrid');
+                projectsGrid.innerHTML = data.caseStudies.map(cs => `
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">${cs.title}</h3>
+                            <div class="project-meta">
+                                <span class="project-company">${cs.company}</span>
+                                <span class="project-role">${cs.role}</span>
+                            </div>
+                        </div>
+                        <p class="project-summary">${cs.summary}</p>
+                        <div class="project-metrics">
+                            ${cs.keyOutcomes.map(outcome => `
+                                <span class="project-metric-tag">${outcome}</span>
+                            `).join('')}
+                        </div>
+                        <a href="case-study.html?id=${cs.id}" class="btn btn-secondary btn-small">View Case Study</a>
+                    </div>
+                `).join('');
+            }
+        });
+    </script>
+</body>
+</html>

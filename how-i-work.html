@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How I Work - Theo Yeh</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Theo Yeh</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="experience.html">Experience</a>
+                <a href="how-i-work.html" class="active">How I Work</a>
+                <a href="tech-stack.html">Tech Stack</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- How I Work Section -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">How I Work</h1>
+            <p class="page-subtitle">My approach to product management, strategy, and execution</p>
+        </div>
+    </section>
+
+    <section class="how-i-work-section">
+        <div class="container">
+            <div id="howIWorkContent" class="how-i-work-grid">
+                <!-- Loaded dynamically from content.json -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Theo Yeh. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="content-loader.js"></script>
+    <script>
+        // Load "How I Work" content dynamically
+        document.addEventListener('DOMContentLoaded', async () => {
+            const data = await loadContent();
+            if (data && data.howIWork && data.howIWork.sections) {
+                const content = document.getElementById('howIWorkContent');
+                content.innerHTML = data.howIWork.sections.map(section => `
+                    <div class="work-philosophy-card">
+                        <div class="philosophy-icon">${section.icon}</div>
+                        <h2 class="philosophy-title">${section.title}</h2>
+                        <p class="philosophy-description">${section.description}</p>
+                        <ul class="philosophy-principles">
+                            ${section.principles.map(principle => `<li>${principle}</li>`).join('')}
+                        </ul>
+                    </div>
+                `).join('');
+            }
+        });
+    </script>
+</body>
+</html>

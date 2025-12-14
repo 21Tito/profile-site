@@ -1,0 +1,417 @@
+{
+  "profile": {
+    "name": "Theo Yeh",
+    "title": "Staff Product Manager",
+    "location": "San Francisco Bay Area",
+    "currentRole": "Staff Product Manager at Roo",
+    "email": "PLACEHOLDER_EMAIL",
+    "linkedin": "PLACEHOLDER_LINKEDIN",
+    "resumePdf": "PLACEHOLDER_RESUME.pdf",
+    "photo": "me.jpg",
+    "tagline": "Staff Product Manager in health-tech marketplaces and growth",
+    "intro": "I build revenue-generating products and marketplace optimization strategies. At Roo, I led marketplace optimization and stood up a new business line outside the main marketplace, managing two cross-functional teams across product, engineering, design, growth, and marketing.",
+    "heroMetrics": [
+      {
+        "value": "$25M",
+        "label": "Incremental GMV from promotional product"
+      },
+      {
+        "value": "20%",
+        "label": "YoY company-wide revenue growth"
+      },
+      {
+        "value": "2",
+        "label": "Cross-functional teams led"
+      },
+      {
+        "value": "$1M+",
+        "label": "Enterprise program (430+ locations)"
+      },
+      {
+        "value": "30%",
+        "label": "Increase in vet retention"
+      }
+    ]
+  },
+  "caseStudies": [
+    {
+      "id": "roo-promotional-product",
+      "title": "Roo Promotional Product & Lifecycle Motion",
+      "company": "Roo",
+      "role": "Senior PM → Staff PM",
+      "timeframe": "2023-2025",
+      "summary": "Built and launched Roo's first promotional product, driving 20% YoY company-wide revenue growth and increasing vet retention by 30%, resulting in $25M incremental GMV.",
+      "keyOutcomes": [
+        "$25M incremental GMV",
+        "20% YoY company-wide revenue growth",
+        "30% increase in vet retention"
+      ],
+      "context": "Roo is a Series A marketplace connecting veterinary professionals with hospitals. As the company scaled, we needed new revenue levers and retention mechanisms beyond our core marketplace to sustain growth and reduce provider churn.",
+      "problem": "Veterinarian retention was declining as the marketplace matured. We had no promotional products to incentivize repeat bookings, and account managers lacked tools to proactively engage and retain top providers. Revenue growth was plateauing without new product-driven growth levers.",
+      "myRole": "Led product strategy, design, and launch as Senior/Staff PM. Managed cross-functional team including engineering, design, growth, and marketing. Owned the full product lifecycle from concept to scaled rollout.",
+      "whatIDid": [
+        "Designed and launched Roo's first promotional product with targeted incentives for veterinarians to increase repeat bookings",
+        "Built self-service tools and workflows enabling account managers to independently close retention deals with top vets, eliminating manual bottlenecks",
+        "Originated and shipped marketplace features including Price Bidding and Auto-Confirmation, resulting in 15% YoY incremental bookings revenue",
+        "Created automated cancellation and shift recovery workflows that saved $479K in net revenue and recovered $200K in shifts",
+        "Drove a 670% increase in 'vets favoriting hospitals' metric, powering targeted lifecycle marketing campaigns"
+      ],
+      "outcomes": [
+        {
+          "metric": "$25M incremental GMV",
+          "description": "Attributed to promotional product and lifecycle motion"
+        },
+        {
+          "metric": "20% YoY revenue growth",
+          "description": "Company-wide revenue increase driven by promotional product"
+        },
+        {
+          "metric": "30% vet retention increase",
+          "description": "Reduction in churn among participating veterinarians"
+        },
+        {
+          "metric": "$15M GMV",
+          "description": "Attributed to account manager tools retaining hundreds of vets monthly"
+        },
+        {
+          "metric": "15% YoY bookings revenue",
+          "description": "Incremental revenue from marketplace features (Price Bidding, Auto-Confirmation)"
+        },
+        {
+          "metric": "$479K net revenue saved",
+          "description": "Through automated cancellation workflows"
+        },
+        {
+          "metric": "$200K recovered shifts",
+          "description": "Via shift recovery automation"
+        },
+        {
+          "metric": "670% increase",
+          "description": "In vets favoriting hospitals, enabling targeted campaigns"
+        }
+      ],
+      "learnings": [
+        "Promotional products need careful economic modeling—uncapped incentives can quickly erode margins. We iterated on caps and targeting to balance growth and profitability.",
+        "Empowering non-technical teams (account managers) with self-service tools multiplies impact. Building workflows they can operate independently scaled retention efforts 10x.",
+        "Marketplace features like auto-confirmation and bidding can unlock significant incremental revenue without adding supply or demand—optimizing existing liquidity is underrated.",
+        "Metrics like 'favorites' can be leading indicators of engagement. Driving this metric early enabled us to build a powerful lifecycle marketing engine."
+      ]
+    },
+    {
+      "id": "roo-mobile-app",
+      "title": "Roo Provider Mobile App (0–1)",
+      "company": "Roo",
+      "role": "Founding Product Manager",
+      "timeframe": "2021-2022",
+      "summary": "Built and launched Roo's first mobile app for providers, achieving a 4.8★ rating and centralizing 70% of provider bookings into the app.",
+      "keyOutcomes": [
+        "4.8★ app store rating",
+        "70% of provider bookings through mobile app"
+      ],
+      "context": "Roo initially operated as a web-only marketplace. Veterinary professionals needed on-the-go access to browse shifts, manage bookings, and communicate with hospitals. A mobile app was critical to improve provider experience and increase booking conversion.",
+      "problem": "Providers were using the web platform on mobile browsers, leading to poor UX, low engagement, and missed booking opportunities. We had no native mobile presence, and competitors were launching mobile-first experiences.",
+      "myRole": "Founding Product Manager for mobile. Owned end-to-end product strategy, roadmap, and launch. Collaborated with engineering, design, and operations to define MVP scope and post-launch iterations.",
+      "whatIDid": [
+        "Defined product vision and MVP scope for Roo's first mobile app, prioritizing core booking and communication workflows",
+        "Led user research with veterinarians to validate feature priorities and design decisions",
+        "Worked with engineering and design to ship a high-quality iOS and Android app in 6 months",
+        "Implemented push notifications, shift alerts, and in-app messaging to drive engagement",
+        "Monitored post-launch metrics and iterated on onboarding, search, and booking flows to optimize conversion"
+      ],
+      "outcomes": [
+        {
+          "metric": "4.8★ rating",
+          "description": "Average rating across iOS and Android app stores"
+        },
+        {
+          "metric": "70% of bookings",
+          "description": "Provider bookings shifted from web to mobile app"
+        }
+      ],
+      "learnings": [
+        "Mobile-first experiences are critical in gig marketplaces. Providers expect instant access and notifications—web can't compete.",
+        "Onboarding flow quality directly impacts activation. We A/B tested multiple onboarding versions to maximize conversion.",
+        "Push notifications are a double-edged sword—high engagement, but over-notification leads to opt-outs. We dialed in frequency and relevance over time."
+      ]
+    },
+    {
+      "id": "roo-enterprise-externship",
+      "title": "Roo Enterprise & Externship Platforms",
+      "company": "Roo",
+      "role": "Founding Product Manager",
+      "timeframe": "2021-2023",
+      "summary": "Expanded corporate hospital network by 200+ locations via Roo's first enterprise management/analytics platform. Launched the first externship marketplace, acquiring 600+ veterinarians and deepening academic partnerships.",
+      "keyOutcomes": [
+        "200+ new enterprise locations",
+        "600+ vets acquired via externship marketplace"
+      ],
+      "context": "Roo's marketplace initially served independent clinics and small hospital groups. To scale, we needed to onboard large corporate hospital chains (e.g., VCA, Banfield) and build relationships with veterinary schools to attract early-career talent.",
+      "problem": "Corporate hospital chains had unique needs—centralized billing, multi-location analytics, and compliance requirements. Veterinary schools wanted structured externship programs but had no digital tooling. We had no B2B or academic go-to-market motion.",
+      "myRole": "Founding PM for enterprise and ecosystem products. Led cross-functional teams to design and ship enterprise management tools and the externship marketplace. Owned partnerships with corporate chains and veterinary schools.",
+      "whatIDid": [
+        "Built Roo's first enterprise management platform with multi-location analytics, centralized billing, and admin controls",
+        "Onboarded 200+ corporate hospital locations by addressing their unique operational and compliance needs",
+        "Designed and launched an externship marketplace connecting veterinary students with clinics offering hands-on training programs",
+        "Partnered with veterinary schools to integrate externship programs into curriculum, acquiring 600+ early-career vets",
+        "Created dashboards and reporting tools for enterprise customers to track provider performance and booking trends"
+      ],
+      "outcomes": [
+        {
+          "metric": "200+ locations",
+          "description": "Corporate hospital locations onboarded via enterprise platform"
+        },
+        {
+          "metric": "600+ veterinarians",
+          "description": "Acquired through externship marketplace partnerships"
+        }
+      ],
+      "learnings": [
+        "Enterprise sales require product differentiation. Self-service features don't work for corporate customers—they need white-glove onboarding and custom tooling.",
+        "Academic partnerships are slow but compounding. Vet schools move cautiously, but once they adopt, they send cohorts of students year after year.",
+        "Multi-location analytics are table stakes for enterprise customers. They want visibility into provider quality, costs, and utilization across their network."
+      ]
+    },
+    {
+      "id": "procare-enterprise-ma",
+      "title": "Procare $1M+ Enterprise Deployment & M&A Integrations",
+      "company": "Procare Solutions",
+      "role": "Project Manager",
+      "timeframe": "2018-2020",
+      "summary": "Sole product and program lead for a multi-year $1M+ enterprise software deal, managing custom development and deployment across 430+ locations from kickoff through completion. Managed end-to-end business integration projects for two successful M&A transactions. Led three critical audits (2 PCI-DSS, 1 SOC2) from kickoff to successful closure.",
+      "keyOutcomes": [
+        "$1M+ enterprise deal delivered across 430+ locations",
+        "2 successful M&A integrations",
+        "3 critical audits (PCI-DSS, SOC2) passed"
+      ],
+      "context": "Procare Solutions is a private equity-backed childcare SaaS provider. The company won a major enterprise contract requiring custom development and multi-year deployment. Additionally, PE-driven M&A activity required integrating acquired companies' products and teams.",
+      "problem": "The enterprise customer had unique requirements not supported by our core product. M&A integrations were complex, involving disparate tech stacks, teams, and customer bases. We also needed to pass PCI-DSS and SOC2 audits to maintain enterprise credibility.",
+      "myRole": "Project Manager and sole product lead for the $1M+ enterprise program. Owned custom development roadmap, deployment across 430+ locations, and stakeholder management. Led two M&A integration projects and three audit programs.",
+      "whatIDid": [
+        "Managed end-to-end delivery of $1M+ enterprise software deployment from kickoff to completion across 430+ childcare locations",
+        "Coordinated custom development with engineering teams to meet enterprise customer's unique requirements",
+        "Led program management for two successful M&A integrations, merging products, teams, and customer bases",
+        "Owned three critical audit programs (2 PCI-DSS, 1 SOC2), coordinating cross-functional teams to achieve compliance",
+        "Built project plans, timelines, and risk mitigation strategies for complex, multi-stakeholder initiatives"
+      ],
+      "outcomes": [
+        {
+          "metric": "$1M+ enterprise program",
+          "description": "Successfully delivered across 430+ locations over multiple years"
+        },
+        {
+          "metric": "2 M&A integrations",
+          "description": "End-to-end business and product integrations post-acquisition"
+        },
+        {
+          "metric": "3 audits passed",
+          "description": "2 PCI-DSS and 1 SOC2 audits successfully closed"
+        }
+      ],
+      "learnings": [
+        "Enterprise deployments require ruthless prioritization. Customers want everything, but timelines and budgets force tradeoffs. Clear communication on scope is critical.",
+        "M&A integrations are as much about people as products. Aligning teams, processes, and cultures is harder than merging code.",
+        "Audit programs are high-stakes, low-feedback-loop initiatives. You don't know if you've succeeded until the auditor signs off. Over-preparation is underrated."
+      ]
+    },
+    {
+      "id": "presto-implementations",
+      "title": "Presto Implementations & Operations",
+      "company": "Presto",
+      "role": "Project Manager / Scrum Master & Operations",
+      "timeframe": "2016-2018",
+      "summary": "Delivered four major hardware/software implementations, managing internal teams and strategic external partners. Acted as Scrum Master for two product teams. Oversaw daily content deployments to 2,052+ US locations and implemented a Jenkins-based reporting tool, improving data accuracy from 60% to 99%.",
+      "keyOutcomes": [
+        "4 major implementations delivered",
+        "2,052+ locations with daily content deployments",
+        "Data accuracy improved from 60% to 99%"
+      ],
+      "context": "Presto provides AI-powered restaurant automation solutions. The company was scaling hardware/software deployments to thousands of restaurant locations while managing complex product development and daily operational content updates.",
+      "problem": "Hardware/software implementations were high-touch and operationally complex. Product teams lacked structured agile processes. Daily content deployments to thousands of locations had low accuracy, creating operational overhead and customer dissatisfaction.",
+      "myRole": "Project Manager for four major implementations, coordinating internal and external partners. Scrum Master for two product teams, managing sprints, epics, and user stories in JIRA. Operations lead for daily content deployments and reporting infrastructure.",
+      "whatIDid": [
+        "Delivered four major hardware/software implementations, managing timelines, resources, and stakeholder communication",
+        "Acted as Scrum Master for two product teams, facilitating sprint planning, standups, retrospectives, and backlog grooming in JIRA",
+        "Managed daily content deployments to 2,052+ restaurant locations across the US, ensuring accuracy and uptime",
+        "Built and implemented a Jenkins-based reporting tool to monitor deployment success rates and identify failures in real-time",
+        "Improved content deployment accuracy from 60% to 99% through process improvements and automated monitoring"
+      ],
+      "outcomes": [
+        {
+          "metric": "4 implementations",
+          "description": "Major hardware/software rollouts delivered on time"
+        },
+        {
+          "metric": "2,052+ locations",
+          "description": "Daily content deployments managed operationally"
+        },
+        {
+          "metric": "60% → 99% accuracy",
+          "description": "Data accuracy improvement via Jenkins-based reporting tool"
+        }
+      ],
+      "learnings": [
+        "Hardware + software deployments are exponentially more complex than pure software. Physical logistics, on-site issues, and third-party dependencies create unpredictability.",
+        "Scrum is a forcing function for clarity. Teams that resist sprint planning and backlog grooming are teams with unclear priorities.",
+        "Operational tooling compounds. A Jenkins-based reporting tool that took 2 weeks to build saved hundreds of hours of manual troubleshooting and improved customer satisfaction."
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "company": "Roo",
+      "logo": "roo.png",
+      "roles": [
+        {
+          "title": "Staff Product Manager",
+          "timeframe": "Apr 2025 – Present",
+          "location": "San Francisco Bay Area",
+          "description": "Leading marketplace optimization and new business line development across two cross-functional teams.",
+          "relatedCaseStudies": ["roo-promotional-product"]
+        },
+        {
+          "title": "Senior Product Manager",
+          "timeframe": "Jan 2023 – Apr 2025",
+          "location": "San Francisco Bay Area",
+          "description": "Built promotional products and lifecycle motions driving $25M incremental GMV and 20% YoY revenue growth.",
+          "relatedCaseStudies": ["roo-promotional-product"]
+        },
+        {
+          "title": "Founding Product Manager",
+          "timeframe": "Aug 2021 – Jan 2023",
+          "location": "San Francisco Bay Area",
+          "description": "Launched Roo's first mobile app (4.8★ rating, 70% booking centralization), enterprise platform (200+ locations), and externship marketplace (600+ vets).",
+          "relatedCaseStudies": ["roo-mobile-app", "roo-enterprise-externship"]
+        }
+      ]
+    },
+    {
+      "company": "Procare Solutions",
+      "roles": [
+        {
+          "title": "Project Manager",
+          "timeframe": "2018 – 2020",
+          "location": "Denver, CO",
+          "description": "Led $1M+ enterprise deployment (430+ locations), two M&A integrations, and three critical audits (PCI-DSS, SOC2).",
+          "relatedCaseStudies": ["procare-enterprise-ma"]
+        }
+      ]
+    },
+    {
+      "company": "Presto",
+      "roles": [
+        {
+          "title": "Project Manager / Scrum Master & Operations",
+          "timeframe": "2016 – 2018",
+          "location": "San Carlos, CA",
+          "description": "Delivered 4 major implementations, served as Scrum Master for 2 product teams, and improved deployment accuracy from 60% to 99% across 2,052+ locations.",
+          "relatedCaseStudies": ["presto-implementations"]
+        }
+      ]
+    },
+    {
+      "company": "BroadVision",
+      "roles": [
+        {
+          "title": "Inside Sales",
+          "timeframe": "2015 – 2016",
+          "location": "Redwood City, CA",
+          "description": "Early career role in enterprise SaaS sales.",
+          "relatedCaseStudies": []
+        }
+      ]
+    }
+  ],
+  "howIWork": {
+    "sections": [
+      {
+        "title": "Discovery & Strategy",
+        "icon": "🔍",
+        "description": "I specialize in building revenue-generating products in marketplace and health-tech environments. My approach combines deep customer research, competitive analysis, and strategic experimentation.",
+        "principles": [
+          "Marketplaces: I've built and optimized two-sided marketplaces, focusing on liquidity, pricing mechanisms, and supply/demand balance. At Roo, I originated features like Price Bidding and Auto-Confirmation that drove 15% incremental revenue.",
+          "0–1 products: I thrive in ambiguous, early-stage environments. I've launched multiple products from scratch—mobile apps, enterprise platforms, and promotional products—turning strategy into shipped software.",
+          "Revenue motions: I focus on products that directly impact the bottom line. Whether it's promotional products ($25M GMV), lifecycle campaigns, or enterprise tools, I build with commercial outcomes in mind."
+        ]
+      },
+      {
+        "title": "Execution & Leadership",
+        "icon": "⚙️",
+        "description": "I lead cross-functional teams through complex, high-stakes initiatives—from multi-year enterprise rollouts to fast-paced product launches.",
+        "principles": [
+          "Cross-functional leadership: I've managed teams spanning product, engineering, design, growth, and marketing. I create clarity, alignment, and momentum across diverse stakeholders.",
+          "Enterprise delivery: I've led large-scale deployments ($1M+ deals, 430+ locations) and M&A integrations. I excel at managing complexity, risk, and stakeholder expectations in high-pressure environments.",
+          "Audit & compliance: I've owned critical audit programs (PCI-DSS, SOC2) from kickoff to closure. I understand how to balance speed with rigor in regulated environments."
+        ]
+      },
+      {
+        "title": "Experimentation & Lifecycle",
+        "icon": "🧪",
+        "description": "I use data-driven experimentation and lifecycle marketing to optimize product performance and customer retention.",
+        "principles": [
+          "Promotional products: I've designed and scaled promotional mechanics that balance growth and profitability. At Roo, I launched the first promotional product, driving 20% YoY revenue growth while maintaining unit economics.",
+          "Lifecycle campaigns: I build products that power lifecycle marketing. For example, I drove a 670% increase in 'vets favoriting hospitals,' enabling targeted retention campaigns that saved millions in GMV.",
+          "Marketplace levers: I focus on high-leverage marketplace optimizations—pricing, matching algorithms, incentives—that unlock incremental revenue without adding supply or demand."
+        ]
+      }
+    ]
+  },
+  "techStack": {
+    "categories": [
+      {
+        "name": "Product & Collaboration",
+        "tools": [
+          {
+            "name": "Figma",
+            "description": "Design and prototyping"
+          },
+          {
+            "name": "Linear",
+            "description": "Product roadmap and issue tracking"
+          },
+          {
+            "name": "Notion",
+            "description": "Documentation and strategy (Notion wizard)"
+          }
+        ]
+      },
+      {
+        "name": "Data & Experimentation",
+        "tools": [
+          {
+            "name": "Mode",
+            "description": "SQL-based analytics and dashboards"
+          },
+          {
+            "name": "SQL",
+            "description": "Data analysis and reporting"
+          }
+        ]
+      },
+      {
+        "name": "AI & Coding",
+        "tools": [
+          {
+            "name": "Roo Code",
+            "description": "AI-powered coding assistant"
+          },
+          {
+            "name": "VS Code",
+            "description": "Code editor"
+          },
+          {
+            "name": "Claude",
+            "description": "AI research and prototyping"
+          },
+          {
+            "name": "Perplexity",
+            "description": "AI-powered research"
+          },
+          {
+            "name": "ChatGPT",
+            "description": "AI prototyping and exploration"
+          }
+        ]
+      }
+    ]
+  }
+}

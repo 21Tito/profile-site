@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Case Study - Theo Yeh</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Theo Yeh</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="experience.html">Experience</a>
+                <a href="how-i-work.html">How I Work</a>
+                <a href="tech-stack.html">Tech Stack</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Case Study Content -->
+    <div id="caseStudyContent">
+        <!-- Loaded dynamically from content.json -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Theo Yeh. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="content-loader.js"></script>
+    <script>
+        // Load case study dynamically
+        document.addEventListener('DOMContentLoaded', async () => {
+            const caseStudyId = getUrlParameter('id');
+            if (!caseStudyId) {
+                window.location.href = 'projects.html';
+                return;
+            }
+
+            const data = await loadContent();
+            if (!data) {
+                window.location.href = 'projects.html';
+                return;
+            }
+
+            const caseStudy = getCaseStudyById(caseStudyId);
+            if (!caseStudy) {
+                window.location.href = 'projects.html';
+                return;
+            }
+
+            // Update page title
+            document.getElementById('pageTitle').textContent = `${caseStudy.title} - Theo Yeh`;
+
+            // Render case study
+            const content = document.getElementById('caseStudyContent');
+            content.innerHTML = `
+                <!-- Back Button -->
+                <div class="container" style="padding-top: 100px;">
+                    <a href="projects.html" class="back-link">&larr; Back to Projects</a>
+                </div>
+
+                <!-- Case Study Header -->
+                <section class="case-study-header">
+                    <div class="container">
+                        <div class="case-study-meta">
+                            <span class="case-study-company">${caseStudy.company}</span>
+                            <span class="case-study-role">${caseStudy.role}</span>
+                            <span class="case-study-timeframe">${caseStudy.timeframe}</span>
+                        </div>
+                        <h1 class="case-study-title">${caseStudy.title}</h1>
+                        <p class="case-study-summary">${caseStudy.summary}</p>
+
+                        <!-- Key Outcomes Pills -->
+                        <div class="key-outcomes-pills">
+                            ${caseStudy.keyOutcomes.map(outcome => `
+                                <span class="outcome-pill">${outcome}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Case Study Body -->
+                <section class="case-study-body">
+                    <div class="container">
+                        <div class="case-study-section">
+                            <h2 class="section-title">Context</h2>
+                            <p>${caseStudy.context}</p>
+                        </div>
+
+                        <div class="case-study-section">
+                            <h2 class="section-title">Problem</h2>
+                            <p>${caseStudy.problem}</p>
+                        </div>
+
+                        <div class="case-study-section">
+                            <h2 class="section-title">My Role</h2>
+                            <p>${caseStudy.myRole}</p>
+                        </div>
+
+                        <div class="case-study-section">
+                            <h2 class="section-title">What I Did</h2>
+                            <ul class="case-study-list">
+                                ${caseStudy.whatIDid.map(item => `<li>${item}</li>`).join('')}
+                            </ul>
+                        </div>
+
+                        <div class="case-study-section">
+                            <h2 class="section-title">Outcomes</h2>
+                            <div class="outcomes-grid">
+                                ${caseStudy.outcomes.map(outcome => `
+                                    <div class="outcome-card">
+                                        <div class="outcome-metric">${outcome.metric}</div>
+                                        <div class="outcome-description">${outcome.description}</div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <div class="case-study-section">
+                            <h2 class="section-title">Learnings</h2>
+                            <ul class="case-study-list learnings-list">
+                                ${caseStudy.learnings.map(learning => `<li>${learning}</li>`).join('')}
+                            </ul>
+                        </div>
+
+                        <!-- Navigation to other case studies -->
+                        <div class="case-study-navigation">
+                            <a href="projects.html" class="btn btn-secondary">View All Projects</a>
+                        </div>
+                    </div>
+                </section>
+            `;
+        });
+    </script>
+</body>
+</html>
