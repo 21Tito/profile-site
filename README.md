@@ -1,18 +1,20 @@
-# Theo Yeh - Portfolio Site
+# Portfolio Site
 
-Personal portfolio website showcasing my experience as a Staff Product Manager at Roo.
+Modern, responsive portfolio website with multi-page layout and centralized content management.
 
 ## Features
 
+- Multi-page layout (Home, Projects, Experience, How I Work, Tech Stack)
+- Centralized content management via JSON
+- Dynamic content loading
 - Responsive design with modern UI
-- LinkedIn-style experience timeline showing career progression
-- Interactive skills section
 - Contact form with email notifications
-- Education section
+- LinkedIn-style experience timeline
+- Project showcase with case studies
 
 ## Contact Form Setup
 
-The contact form sends emails to `theoyeh@gmail.com` when visitors submit messages.
+The contact form sends email notifications when visitors submit messages.
 
 ### Required Configuration:
 
@@ -30,7 +32,7 @@ The contact form sends emails to `theoyeh@gmail.com` when visitors submit messag
 
 3. Update `.env` file:
    ```
-   EMAIL_USER=theoyeh@gmail.com
+   EMAIL_USER=your_email@gmail.com
    EMAIL_APP_PASSWORD=your_16_character_app_password
    ```
 
